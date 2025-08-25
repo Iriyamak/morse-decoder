@@ -1,4 +1,3 @@
-/*
 const MORSE_TABLE = {
   '.-': 'a',
   '-...': 'b',
@@ -37,10 +36,9 @@ const MORSE_TABLE = {
   '----.': '9',
   '-----': '0',
 };
-*/
 
-module.exports = function decode(/* expr */) {
-   let result = '';
+module.exports = function decode(expr) {
+  let result = '';
   for (let i = 0; i < expr.length; i += 10) {
     const chunk = expr.slice(i, i + 10);
 
