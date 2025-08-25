@@ -40,7 +40,7 @@ const MORSE_TABLE = {
 */
 
 module.exports = function decode(/* expr */) {
-  let result = '';
+   let result = '';
   for (let i = 0; i < expr.length; i += 10) {
     const chunk = expr.slice(i, i + 10);
 
