@@ -40,23 +40,22 @@ const MORSE_TABLE = {
 */
 
 module.exports = function decode(/* expr */) {
- let result = '';
+  let result = '';
   for (let i = 0; i < expr.length; i += 10) {
-    let chunk = expr.slice(i, i + 10);
+    const chunk = expr.slice(i, i + 10);
 
     if (chunk === '**********') {
       result += ' ';
-      continue;
     }
 
     let morse = '';
     for (let j = 0; j < 10; j += 2) {
-      let pair = chunk.slice(j, j + 2);
+      const pair = chunk.slice(j, j + 2);
       if (pair === '10') morse += '.';
       else if (pair === '11') morse += '-';
     }
 
-    result += MORSE_TABLE[morse];
+    result += MORSE_TABLE[morse] || '';
   }
   return result;
 };
