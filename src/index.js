@@ -40,5 +40,23 @@ const MORSE_TABLE = {
 */
 
 module.exports = function decode(/* expr */) {
-  throw new Error('Not implemented');
+ let result = '';
+  for (let i = 0; i < expr.length; i += 10) {
+    let chunk = expr.slice(i, i + 10);
+
+    if (chunk === '**********') {
+      result += ' ';
+      continue;
+    }
+
+    let morse = '';
+    for (let j = 0; j < 10; j += 2) {
+      let pair = chunk.slice(j, j + 2);
+      if (pair === '10') morse += '.';
+      else if (pair === '11') morse += '-';
+    }
+
+    result += MORSE_TABLE[morse];
+  }
+  return result;
 };
